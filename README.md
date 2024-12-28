@@ -1,2 +1,2 @@
-# Repository-MindFlip
-MindFlip - Memory Game Website
+# MindFlip - Memory Game Website
+The README file will be updated soon.
