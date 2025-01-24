@@ -7,7 +7,7 @@ let numFlips = 0;
 
 // ***** FUNCTIONS ***** //
 const eventListener = function () {
-    flipCard($(this));
+    flipCard(this);
     matches();
 };
 
@@ -46,7 +46,7 @@ const generateGameBoard = async function () {
 const flipCard = function (div) {
     if (numFlips >= 2) return;
 
-    flips.push(+div.data("card-id"));
+    flips.push(+$(div).data("card-id"));
     targetInnerDiv(div, "add");
 
     numFlips++;
@@ -68,7 +68,7 @@ const matches = function () {
     } else {
         cardDivs.each((_, div) => {
             if (!$(div).hasClass("match")) {
-                targetInnerDiv($(div), "remove");
+                targetInnerDiv(div, "remove");
             }
         });
     }
@@ -84,7 +84,7 @@ const shuffleArray = function (array) {
 };
 
 const targetInnerDiv = function (parent, action) {
-    const parentClass = parent.attr("class").split(" ")[1];
+    const parentClass = $(parent).attr("class").split(" ")[1];
     const innerDiv = $(`.${parentClass} .div-card-inner`);
 
     if (action === "add") {
