@@ -1,5 +1,5 @@
 // ***** DOM ELEMENTS ***** //
-const gameBoard = document.querySelector(".div-game-board");
+const gameBoard = $(".div-game-board");
 
 // ***** VARIABLES ***** //
 const flips = [];
@@ -7,7 +7,7 @@ let numFlips = 0;
 
 // ***** FUNCTIONS ***** //
 const eventListener = function () {
-    flipCard(this);
+    flipCard($(this));
     matches();
 };
 
@@ -35,19 +35,19 @@ const generateGameBoard = async function () {
             </div>
         `;
 
-        gameBoard.insertAdjacentHTML("beforeend", card);
+        gameBoard.append(card);
     }
 
-    document.querySelectorAll(".div-card").forEach((div) => {
-        div.addEventListener("click", eventListener);
+    $(".div-card").each((_, div) => {
+        $(div).click(eventListener);
     });
 };
 
 const flipCard = function (div) {
     if (numFlips >= 2) return;
 
-    flips.push(+div.dataset.cardId);
-    targetInnerDiv(div.classList[1], "add");
+    flips.push(+div.data("card-id"));
+    targetInnerDiv(div, "add");
 
     numFlips++;
 };
@@ -56,18 +56,19 @@ const matches = function () {
     if (flips.length !== 2) return;
 
     const [cardId1, cardId2] = flips;
-    const cardContainers = document.querySelectorAll(".div-card");
+    const cardDivs = $(".div-card");
     if (cardId1 === cardId2) {
-        cardContainers.forEach((div) => {
-            if (+div.dataset.cardId === cardId1) {
-                div.removeEventListener("click", eventListener);
-                div.classList.add("match");
+        cardDivs.each((_, div) => {
+            const jDiv = $(div);
+            if (+jDiv.data("card-id") === cardId1) {
+                jDiv.addClass("match");
+                jDiv.off();
             }
         });
     } else {
-        cardContainers.forEach((div) => {
-            if (!div.classList.contains("match")) {
-                targetInnerDiv(div.classList[1], "remove");
+        cardDivs.each((_, div) => {
+            if (!$(div).hasClass("match")) {
+                targetInnerDiv($(div), "remove");
             }
         });
     }
@@ -83,14 +84,16 @@ const shuffleArray = function (array) {
 };
 
 const targetInnerDiv = function (parent, action) {
-    const innerDiv = document.querySelector(`.${parent} .div-card-inner`);
+    const parentClass = parent.attr("class").split(" ")[1];
+    const innerDiv = $(`.${parentClass} .div-card-inner`);
+
     if (action === "add") {
-        innerDiv.classList.add("flip-card");
+        innerDiv.addClass("flip-card");
         return;
     }
 
     setTimeout(function () {
-        innerDiv.classList.remove("flip-card");
+        innerDiv.removeClass("flip-card");
     }, 2000);
 };
 
