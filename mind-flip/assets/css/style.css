@@ -46,6 +46,7 @@ html {
     position: absolute;
     width: inherit;
     aspect-ratio: inherit;
+    border-radius: 0.4rem;
     backface-visibility: hidden;
 }
 

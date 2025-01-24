@@ -1,5 +1,7 @@
+// ***** DOM ELEMENTS ***** //
 const gameBoard = document.querySelector(".div-game-board");
 
+// ***** FUNCTIONS ***** //
 const flipCard = function () {
     const parentClass = this.classList[1];
     const innerDiv = document.querySelector(`.${parentClass} .div-card-container-inner`);
@@ -29,10 +31,11 @@ const generateGameBoard = async function () {
         `;
 
         gameBoard.insertAdjacentHTML("beforeend", card);
-        document.querySelectorAll(".div-card-container").forEach((div) => {
-            div.addEventListener("click", flipCard);
-        });
     }
+
+    document.querySelectorAll(".div-card-container").forEach((div) => {
+        div.addEventListener("click", flipCard);
+    });
 };
 
 const shuffleArray = function (array) {
