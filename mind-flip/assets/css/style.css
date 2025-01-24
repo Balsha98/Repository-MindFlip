@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+.page-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* GAME BOARD DIV */
+.div-game-board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.div-card-container {
+    width: 8rem;
+    aspect-ratio: 1 / 1;
+    perspective: 100rem;
+}
+
+.div-card-container-inner {
+    position: relative;
+    width: inherit;
+    aspect-ratio: inherit;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.div-card-container:hover .div-card-container-inner {
+    transform: rotateY(180deg);
+}
+
+.div-card-front,
+.div-card-back {
+    position: absolute;
+    width: inherit;
+    aspect-ratio: inherit;
+    backface-visibility: hidden;
+}
+
+.div-card-front {
+    background-color: orange;
+    z-index: 2;
+}
+
+.div-card-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    transform: rotateY(180deg);
+    z-index: 1;
+}

@@ -1,0 +1,194 @@
+[
+    {
+        "US": {
+            "id": 1,
+            "name": "United States"
+        }
+    },
+    {
+        "CA": {
+            "id": 2,
+            "name": "Canada"
+        }
+    },
+    {
+        "GB": {
+            "id": 3,
+            "name": "United Kingdom"
+        }
+    },
+    {
+        "FR": {
+            "id": 4,
+            "name": "France"
+        }
+    },
+    {
+        "DE": {
+            "id": 5,
+            "name": "Germany"
+        }
+    },
+    {
+        "IT": {
+            "id": 6,
+            "name": "Italy"
+        }
+    },
+    {
+        "JP": {
+            "id": 7,
+            "name": "Japan"
+        }
+    },
+    {
+        "CN": {
+            "id": 8,
+            "name": "China"
+        }
+    },
+    {
+        "IN": {
+            "id": 9,
+            "name": "India"
+        }
+    },
+    {
+        "BR": {
+            "id": 10,
+            "name": "Brazil"
+        }
+    },
+    {
+        "RU": {
+            "id": 11,
+            "name": "Russia"
+        }
+    },
+    {
+        "AU": {
+            "id": 12,
+            "name": "Australia"
+        }
+    },
+    {
+        "ES": {
+            "id": 13,
+            "name": "Spain"
+        }
+    },
+    {
+        "MX": {
+            "id": 14,
+            "name": "Mexico"
+        }
+    },
+    {
+        "ZA": {
+            "id": 15,
+            "name": "South Africa"
+        }
+    },
+    {
+        "KR": {
+            "id": 16,
+            "name": "South Korea"
+        }
+    },
+    {
+        "TR": {
+            "id": 17,
+            "name": "Turkey"
+        }
+    },
+    {
+        "SE": {
+            "id": 18,
+            "name": "Sweden"
+        }
+    },
+    {
+        "NL": {
+            "id": 19,
+            "name": "Netherlands"
+        }
+    },
+    {
+        "CH": {
+            "id": 20,
+            "name": "Switzerland"
+        }
+    },
+    {
+        "AE": {
+            "id": 21,
+            "name": "United Arab Emirates"
+        }
+    },
+    {
+        "AR": {
+            "id": 22,
+            "name": "Argentina"
+        }
+    },
+    {
+        "NG": {
+            "id": 23,
+            "name": "Nigeria"
+        }
+    },
+    {
+        "EG": {
+            "id": 24,
+            "name": "Egypt"
+        }
+    },
+    {
+        "PK": {
+            "id": 25,
+            "name": "Pakistan"
+        }
+    },
+    {
+        "ID": {
+            "id": 26,
+            "name": "Indonesia"
+        }
+    },
+    {
+        "SI": {
+            "id": 27,
+            "name": "Slovenia"
+        }
+    },
+    {
+        "HR": {
+            "id": 28,
+            "name": "Croatia"
+        }
+    },
+    {
+        "BA": {
+            "id": 29,
+            "name": "Bosnia & Herzegovina"
+        }
+    },
+    {
+        "RS": {
+            "id": 30,
+            "name": "Serbia"
+        }
+    },
+    {
+        "ME": {
+            "id": 31,
+            "name": "Montenegro"
+        }
+    },
+    {
+        "MK": {
+            "id": 32,
+            "name": "Macedonia"
+        }
+    }
+]
