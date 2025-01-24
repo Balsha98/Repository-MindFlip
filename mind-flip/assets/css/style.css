@@ -18,12 +18,12 @@ html {
 /* GAME BOARD DIV */
 .div-game-board {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 1.2rem;
 }
 
 .div-card-container {
-    width: 8rem;
+    width: 9.6rem;
     aspect-ratio: 1 / 1;
     perspective: 100rem;
     cursor: pointer;

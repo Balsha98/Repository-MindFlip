@@ -7,7 +7,7 @@ const flipCard = function () {
 };
 
 const generateGameBoard = async function () {
-    const response = await fetch("assets/json/countries.json");
+    const response = await fetch("assets/json/countries-24-pairs.json");
     if (!response.ok) return;
 
     const countries = await response.json();
