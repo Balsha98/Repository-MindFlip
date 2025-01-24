@@ -19,12 +19,14 @@ html {
 .div-game-board {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    gap: 1.2rem;
 }
 
 .div-card-container {
     width: 8rem;
     aspect-ratio: 1 / 1;
     perspective: 100rem;
+    cursor: pointer;
 }
 
 .div-card-container-inner {
@@ -32,10 +34,10 @@ html {
     width: inherit;
     aspect-ratio: inherit;
     transform-style: preserve-3d;
-    transition: transform 0.5s;
+    transition: transform 1s;
 }
 
-.div-card-container:hover .div-card-container-inner {
+.flip-card {
     transform: rotateY(180deg);
 }
 
