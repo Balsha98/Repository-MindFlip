@@ -22,14 +22,14 @@ html {
     gap: 1.2rem;
 }
 
-.div-card-container {
+.div-card {
     width: 9.6rem;
     aspect-ratio: 1 / 1;
     perspective: 100rem;
     cursor: pointer;
 }
 
-.div-card-container-inner {
+.div-card-inner {
     position: relative;
     width: inherit;
     aspect-ratio: inherit;
