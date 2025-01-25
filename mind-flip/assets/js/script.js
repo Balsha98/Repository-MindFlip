@@ -78,13 +78,14 @@ const matches = function () {
     // In case all the pairs have been found.
     if ($(".match").length === $(".div-card").length) {
         $(".match").each((_, div) => {
-            ["flip-card", "match"].forEach((name) => {
-                $(div).removeClass(name);
-            });
+            $(div).removeClass("match");
+            targetInnerDiv(div, "remove");
         });
 
-        gameBoard[0].innerHTML = "";
-        generateGameBoard();
+        setTimeout(function () {
+            gameBoard[0].innerHTML = "";
+            generateGameBoard();
+        }, 3000);
     }
 
     setTimeout(function () {
