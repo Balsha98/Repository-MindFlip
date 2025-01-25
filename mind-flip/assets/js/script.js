@@ -3,6 +3,7 @@ const gameBoard = $(".div-game-board");
 
 // ***** VARIABLES ***** //
 const flips = [];
+let countryCards = [];
 let numFlips = 0;
 
 // ***** FUNCTIONS ***** //
@@ -18,7 +19,7 @@ const generateGameBoard = async function () {
     if (!response.ok) return;
 
     const countries = await response.json();
-    const countryCards = shuffleArray([...countries, ...countries]);
+    countryCards = shuffleArray([...countries, ...countries]);
 
     let cardID = 1;
     for (const obj of countryCards) {
@@ -74,8 +75,17 @@ const matches = function () {
         });
     }
 
-    // Guard clause.
-    if ($(".match").length === $(".div-card").length) return;
+    // In case all the pairs have been found.
+    if ($(".match").length === $(".div-card").length) {
+        $(".match").each((_, div) => {
+            ["flip-card", "match"].forEach((name) => {
+                $(div).removeClass(name);
+            });
+        });
+
+        gameBoard[0].innerHTML = "";
+        generateGameBoard();
+    }
 
     setTimeout(function () {
         flips.splice(0);
