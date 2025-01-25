@@ -10,6 +10,7 @@ html {
     font-size: 10px;
 }
 
+/* PAGE BODY */
 .page-body {
     display: flex;
     align-items: center;
@@ -24,6 +25,7 @@ html {
     gap: 1.2rem;
 }
 
+/* CARD DIV */
 .div-card {
     width: 9.6rem;
     aspect-ratio: 1 / 1;
