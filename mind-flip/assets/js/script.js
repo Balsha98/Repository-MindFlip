@@ -13,7 +13,7 @@ const eventListener = function () {
 };
 
 const generateGameBoard = async function () {
-    const response = await fetch("assets/json/countries-24-pairs.json");
+    const response = await fetch("assets/json/countries-12-pairs.json");
 
     // Guard clause.
     if (!response.ok) return;
