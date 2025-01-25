@@ -30,7 +30,8 @@ const generateGameBoard = async function () {
                 <div class="div-card-inner">
                     <div class="div-card-front">&nbsp;</div>
                     <div class="div-card-back">
-                        <img src="https://flagsapi.com/${key}/flat/32.png" alt="${name} Flag">
+                        <img src="https://flagsapi.com/${key}/flat/64.png" alt="${name} Flag">
+                        <span>${key}</span>
                     </div>
                 </div>
             </div>
