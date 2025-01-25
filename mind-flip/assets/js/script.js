@@ -53,6 +53,7 @@ const flipCard = function (div) {
 };
 
 const matches = function () {
+    // Guard clause.
     if (flips.length !== 2) return;
 
     const [cardId1, cardId2] = flips;
@@ -73,10 +74,13 @@ const matches = function () {
         });
     }
 
+    // Guard clause.
+    if ($(".match").length === $(".div-card").length) return;
+
     setTimeout(function () {
         flips.splice(0);
         numFlips = 0;
-    }, 2000);
+    }, 1000);
 };
 
 const shuffleArray = function (array) {
@@ -94,7 +98,7 @@ const targetInnerDiv = function (parent, action) {
 
     setTimeout(function () {
         innerDiv.removeClass("flip-card");
-    }, 2000);
+    }, 1000);
 };
 
 generateGameBoard();
