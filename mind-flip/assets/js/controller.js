@@ -10,6 +10,12 @@ let countryCards = [];
 let numFlips = 0;
 
 // ***** FUNCTIONS ***** //
+const controlGameBoard = function () {};
+
+const initController = function () {};
+
+initController();
+
 const eventListener = function () {
     flipCard(this);
     matches();
