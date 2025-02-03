@@ -1,3 +1,6 @@
+import model from "./model.js";
+import boardView from "./views/boardView.js";
+
 // ***** DOM ELEMENTS ***** //
 const gameBoard = $(".div-game-board");
 
