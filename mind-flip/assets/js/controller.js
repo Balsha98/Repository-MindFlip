@@ -1,125 +1,47 @@
 import model from "./model.js";
 import boardView from "./views/boardView.js";
 
-// ***** DOM ELEMENTS ***** //
-const gameBoard = $(".div-game-board");
-
-// ***** VARIABLES ***** //
-const flips = [];
-let countryCards = [];
-let numFlips = 0;
-
 // ***** FUNCTIONS ***** //
-const controlGameBoard = function () {};
-
-const initController = function () {};
-
-initController();
-
-const eventListener = function () {
-    flipCard(this);
-    matches();
+const loadGameBoard = async function () {
+    await model.loadGameCards(12);
+    boardView.generateGameBoard(model.getStateValue("cards"));
 };
 
-const generateGameBoard = async function () {
-    const response = await fetch("assets/json/countries-12-pairs.json");
-
-    // Guard clause.
-    if (!response.ok) return;
-
-    const countries = await response.json();
-    countryCards = shuffleArray([...countries, ...countries]);
-
-    let cardID = 1;
-    for (const obj of countryCards) {
-        const [[key, { id, name }]] = Object.entries(obj);
-
-        const card = `
-            <div class="div-card card-${cardID++}" data-card-id="${id}">
-                <div class="div-card-inner">
-                    <div class="div-card-front">&nbsp;</div>
-                    <div class="div-card-back">
-                        <img src="https://flagsapi.com/${key}/flat/64.png" alt="${name} Flag">
-                        <span>${key}</span>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        gameBoard.append(card);
-    }
-
-    $(".div-card").each((_, div) => {
-        $(div).click(eventListener);
-    });
-};
-
-const flipCard = function (div) {
+const controlFlipCard = function (div) {
+    let numFlips = model.getStateValue("numFlips");
     if (numFlips >= 2) return;
 
-    flips.push(+$(div).data("card-id"));
-    targetInnerDiv(div, "add");
+    model.getStateValue("flips").push(+div.data("card-id"));
+    boardView.flipInnerContainer(div, "add");
 
-    numFlips++;
+    model.setStateValue("numFlips", ++numFlips);
+
+    // Check for match.
+    controlMatchCard();
 };
 
-const matches = function () {
-    // Guard clause.
+const controlMatchCard = function () {
+    const flips = model.getStateValue("flips");
     if (flips.length !== 2) return;
 
-    const [cardId1, cardId2] = flips;
-    const cardDivs = $(".div-card");
-    if (cardId1 === cardId2) {
-        cardDivs.each((_, div) => {
-            const jDiv = $(div);
-            if (+jDiv.data("card-id") === cardId1) {
-                jDiv.addClass("match");
-                jDiv.off();
-            }
-        });
-    } else {
-        cardDivs.each((_, div) => {
-            if (!$(div).hasClass("match")) {
-                targetInnerDiv(div, "remove");
-            }
-        });
-    }
+    // Match 2 flipped cards.
+    boardView.matchTwoCards(flips);
 
     // In case all the pairs have been found.
-    if ($(".match").length === $(".div-card").length) {
-        $(".match").each((_, div) => {
-            $(div).removeClass("match");
-            targetInnerDiv(div, "remove");
-        });
+    boardView.checkIfGameIsOver(loadGameBoard);
 
-        setTimeout(function () {
-            gameBoard[0].innerHTML = "";
-            generateGameBoard();
-        }, 3000);
-    }
-
+    // Clear the current player turn.
     setTimeout(function () {
-        flips.splice(0);
-        numFlips = 0;
+        model.setStateValue("flips", []);
+        model.setStateValue("numFlips", 0);
     }, 1000);
 };
 
-const shuffleArray = function (array) {
-    return array.sort(() => Math.random() - 0.5);
+const initController = function () {
+    loadGameBoard();
+
+    // Event handlers.
+    boardView.addEventFlipCard(controlFlipCard);
 };
 
-const targetInnerDiv = function (parent, action) {
-    const parentClass = $(parent).attr("class").split(" ")[1];
-    const innerDiv = $(`.${parentClass} .div-card-inner`);
-
-    if (action === "add") {
-        innerDiv.addClass("flip-card");
-        return;
-    }
-
-    setTimeout(function () {
-        innerDiv.removeClass("flip-card");
-    }, 1000);
-};
-
-generateGameBoard();
+initController();
