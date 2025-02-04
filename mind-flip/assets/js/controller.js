@@ -2,8 +2,8 @@ import model from "./model.js";
 import boardView from "./views/boardView.js";
 
 // ***** FUNCTIONS ***** //
-const loadGameBoard = async function () {
-    await model.loadGameCards(12);
+const loadGameBoard = async function (numPairs) {
+    await model.loadGameCards(numPairs);
     boardView.generateGameBoard(model.getStateValue("cards"));
 };
 
@@ -38,7 +38,7 @@ const controlMatchCard = function () {
 };
 
 const initController = function () {
-    loadGameBoard();
+    loadGameBoard(12);
 
     // Event handlers.
     boardView.addEventFlipCard(controlFlipCard);
