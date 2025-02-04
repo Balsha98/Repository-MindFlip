@@ -29,6 +29,7 @@ class BoardView {
     }
 
     flipInnerContainer(parent, action) {
+        console.log(parent);
         const parentClass = parent.attr("class").split(" ")[1];
         const innerDiv = $(`.${parentClass} .div-card-inner`);
 
@@ -58,7 +59,7 @@ class BoardView {
         if (this._matchedCards.length !== this._allCards.length) return;
 
         this._matchedCards.each((_, div) => {
-            this.flipInnerContainer(div, "remove");
+            this.flipInnerContainer($(div), "remove");
             $(div).removeClass("match");
         });
 
