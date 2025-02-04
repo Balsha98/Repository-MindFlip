@@ -29,7 +29,6 @@ class BoardView {
     }
 
     flipInnerContainer(parent, action) {
-        console.log(parent);
         const parentClass = parent.attr("class").split(" ")[1];
         const innerDiv = $(`.${parentClass} .div-card-inner`);
 
