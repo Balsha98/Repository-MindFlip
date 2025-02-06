@@ -11,20 +11,15 @@ html {
     overflow: hidden;
 }
 
-/* PAGE BODY */
-.page-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
 /* GAME BOARD DIV */
 .div-game-board {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 1.2rem;
+    transform: translate(-50%, -50%);
 }
 
 /* PLACEHOLDER CARDS */
@@ -118,7 +113,7 @@ html {
     justify-content: center;
     width: inherit;
     aspect-ratio: inherit;
-    background-color: black;
+    background-color: darkred;
     border-radius: 0.4rem;
     z-index: 1;
 }
