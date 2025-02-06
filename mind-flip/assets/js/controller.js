@@ -4,7 +4,11 @@ import boardView from "./views/boardView.js";
 // ***** FUNCTIONS ***** //
 const loadGameBoard = async function (numPairs) {
     await model.loadGameCards(numPairs);
-    boardView.generateGameBoard(model.getStateValue("cards"));
+    boardView.setCardStack(model.getStateValue("cards"));
+
+    setTimeout(function () {
+        boardView.setGameBoard();
+    }, 1000);
 };
 
 const controlFlipCard = function (div) {
@@ -22,6 +26,8 @@ const controlFlipCard = function (div) {
 
 const controlMatchCard = function () {
     const flips = model.getStateValue("flips");
+
+    // Guard clause.
     if (flips.length !== 2) return;
 
     // Match 2 flipped cards.

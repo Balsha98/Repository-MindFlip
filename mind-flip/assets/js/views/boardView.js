@@ -1,14 +1,15 @@
 class BoardView {
     _gameBoard = $(".div-game-board");
+    _cardStack = $(".div-card-stack");
     _matchedCards = [];
     _allCards = [];
 
-    generateGameBoard(cards) {
+    setCardStack(cards) {
         for (const i in cards) {
             const [[key, { id, name }]] = Object.entries(cards[i]);
 
             const markup = `
-                <div class="div-card card-${i + 1}" data-card-id="${id}">
+                <div class="div-card card-${i + 1} absolute" data-card-id="${id}">
                     <div class="div-card-inner">
                         <div class="div-card-front">&nbsp;</div>
                         <div class="div-card-back">
@@ -22,10 +23,25 @@ class BoardView {
                 </div>
             `;
 
-            this._gameBoard.append(markup);
+            this._cardStack.append(markup);
         }
 
         this._allCards = $(".div-card");
+    }
+
+    setGameBoard() {
+        let counter = 0;
+        const interval = setInterval(() => {
+            if (counter === this._allCards.length - 1) {
+                this._cardStack.addClass("hide-stack");
+                clearInterval(interval);
+            }
+
+            $(this._allCards[counter]).removeClass("absolute");
+            this._gameBoard.append(this._allCards[counter]);
+
+            counter++;
+        }, 200);
     }
 
     flipInnerContainer(parent, action) {
@@ -37,7 +53,7 @@ class BoardView {
             return;
         }
 
-        setTimeout(function () {
+        setTimeout(() => {
             innerDiv.removeClass("flip-card");
         }, 1000);
     }
@@ -62,7 +78,7 @@ class BoardView {
             $(div).removeClass("match");
         });
 
-        setTimeout(function () {
+        setTimeout(() => {
             this._gameBoard.empty();
             loadGameBoard();
         }, 3000);
