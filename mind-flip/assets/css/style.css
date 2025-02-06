@@ -22,13 +22,6 @@ html {
     transform: translate(-50%, -50%);
 }
 
-/* PLACEHOLDER CARDS */
-.div-placeholder-card {
-    width: 9.6rem;
-    aspect-ratio: 1 / 1;
-    perspective: 100rem;
-}
-
 /* CARD DIV */
 .div-card {
     width: 9.6rem;
@@ -110,9 +103,7 @@ html {
 }
 
 .div-top-stack-card {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
