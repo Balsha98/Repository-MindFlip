@@ -67,7 +67,12 @@ html {
 
 .div-card-front {
     background-color: orange;
+    transition: opacity 0.5s;
     z-index: 2;
+}
+
+.div-card-front:hover {
+    opacity: 0.6;
 }
 
 .div-card-back {
@@ -115,9 +120,15 @@ html {
     aspect-ratio: inherit;
     background-color: darkred;
     border-radius: 0.4rem;
+    transition: opacity 0.5s;
+    cursor: pointer;
     z-index: 1;
 }
 
 .div-top-stack-card span {
     font-size: 1.4rem;
+}
+
+.div-top-stack-card:hover {
+    opacity: 0.8;
 }

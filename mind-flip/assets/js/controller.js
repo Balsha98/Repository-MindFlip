@@ -2,13 +2,13 @@ import model from "./model.js";
 import boardView from "./views/boardView.js";
 
 // ***** FUNCTIONS ***** //
-const loadGameBoard = async function (numPairs) {
+const loadCardStack = async function (numPairs) {
     await model.loadGameCards(numPairs);
     boardView.setCardStack(model.getStateValue("cards"));
+};
 
-    setTimeout(function () {
-        boardView.setGameBoard();
-    }, 1000);
+const controlSetGameBoard = function () {
+    boardView.setGameBoard();
 };
 
 const controlFlipCard = function (div) {
@@ -34,7 +34,7 @@ const controlMatchCard = function () {
     boardView.matchTwoCards(flips);
 
     // In case all the pairs have been found.
-    boardView.checkIfGameIsOver(loadGameBoard);
+    boardView.isGameOver(loadCardStack);
 
     // Clear the current player turn.
     setTimeout(function () {
@@ -44,9 +44,11 @@ const controlMatchCard = function () {
 };
 
 const initController = function () {
-    loadGameBoard(12);
+    // TODO: Set number of pairs dynamically.
+    loadCardStack(12);
 
     // Event handlers.
+    boardView.addEventSetGameBoard(controlSetGameBoard);
     boardView.addEventFlipCard(controlFlipCard);
 };
 

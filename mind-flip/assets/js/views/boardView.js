@@ -44,6 +44,10 @@ class BoardView {
         }, 200);
     }
 
+    addEventSetGameBoard(handlerFunction) {
+        this._cardStack.click(handlerFunction);
+    }
+
     flipInnerContainer(parent, action) {
         const parentClass = parent.attr("class").split(" ")[1];
         const innerDiv = $(`.${parentClass} .div-card-inner`);
@@ -69,21 +73,6 @@ class BoardView {
         });
     }
 
-    checkIfGameIsOver(loadGameBoard) {
-        // Guard clause.
-        if (this._matchedCards.length !== this._allCards.length) return;
-
-        this._matchedCards.each((_, div) => {
-            this.flipInnerContainer($(div), "remove");
-            $(div).removeClass("match");
-        });
-
-        setTimeout(() => {
-            this._gameBoard.empty();
-            loadGameBoard();
-        }, 3000);
-    }
-
     _setCardClassMatch(card) {
         card.addClass("match");
         card.off();
@@ -102,6 +91,24 @@ class BoardView {
                 if (!$(card).hasClass("match")) this.flipInnerContainer($(card), "remove");
             });
         }
+    }
+
+    isGameOver(loadGameBoard) {
+        // Guard clause.
+        if (this._matchedCards.length !== this._allCards.length) return;
+
+        this._matchedCards.each((_, div) => {
+            this.flipInnerContainer($(div), "remove");
+            $(div).removeClass("match");
+        });
+
+        setTimeout(() => {
+            this._gameBoard.empty();
+            this._cardStack.removeClass("hide-stack");
+
+            // TODO: Set number of pairs dynamically.
+            loadGameBoard(12);
+        }, 2000);
     }
 }
 
