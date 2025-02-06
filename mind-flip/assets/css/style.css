@@ -94,6 +94,7 @@ html {
     left: 50%;
     width: 9.6rem;
     aspect-ratio: 1 / 1;
+    border-radius: 0.4rem;
     transform: translate(-50%, 0);
     transition: transform 1s;
 }
@@ -110,10 +111,26 @@ html {
     width: inherit;
     aspect-ratio: inherit;
     background-color: darkred;
-    border-radius: 0.4rem;
+    border-radius: inherit;
     transition: opacity 0.5s;
     cursor: pointer;
     z-index: 1;
+}
+
+.animation {
+    animation-name: card-pull;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    animation-duration: 150ms;
+}
+
+@keyframes card-pull {
+    from {
+        transform: translate(-50%, -1.6rem);
+    }
+    to {
+        transform: translate(-50%, 0);
+    }
 }
 
 .div-top-stack-card span {

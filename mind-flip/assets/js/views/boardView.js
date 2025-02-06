@@ -33,7 +33,12 @@ class BoardView {
         let counter = 0;
         const interval = setInterval(() => {
             if (counter === this._allCards.length - 1) {
-                this._cardStack.addClass("hide-stack");
+                this._cardStack.removeClass("animation");
+
+                setTimeout(() => {
+                    this._cardStack.addClass("hide-stack");
+                }, 150);
+
                 clearInterval(interval);
             }
 
@@ -41,25 +46,14 @@ class BoardView {
             this._gameBoard.append(this._allCards[counter]);
 
             counter++;
-        }, 200);
+        }, 300);
     }
 
     addEventSetGameBoard(handlerFunction) {
-        this._cardStack.click(handlerFunction);
-    }
-
-    flipInnerContainer(parent, action) {
-        const parentClass = parent.attr("class").split(" ")[1];
-        const innerDiv = $(`.${parentClass} .div-card-inner`);
-
-        if (action === "add") {
-            innerDiv.addClass("flip-card");
-            return;
-        }
-
-        setTimeout(() => {
-            innerDiv.removeClass("flip-card");
-        }, 1000);
+        this._cardStack.click(function () {
+            $(this).addClass("animation");
+            handlerFunction();
+        });
     }
 
     addEventFlipCard(handlerFunction) {
@@ -78,6 +72,20 @@ class BoardView {
         card.off();
     }
 
+    flipInnerContainer(parent, action) {
+        const parentClass = parent.attr("class").split(" ")[1];
+        const innerDiv = $(`.${parentClass} .div-card-inner`);
+
+        if (action === "add") {
+            innerDiv.addClass("flip-card");
+            return;
+        }
+
+        setTimeout(() => {
+            innerDiv.removeClass("flip-card");
+        }, 1000);
+    }
+
     matchTwoCards(flips) {
         const [cardId1, cardId2] = flips;
         if (cardId1 === cardId2) {
@@ -93,7 +101,7 @@ class BoardView {
         }
     }
 
-    isGameOver(loadGameBoard) {
+    isGameOver(loadCardStack) {
         // Guard clause.
         if (this._matchedCards.length !== this._allCards.length) return;
 
@@ -107,7 +115,7 @@ class BoardView {
             this._cardStack.removeClass("hide-stack");
 
             // TODO: Set number of pairs dynamically.
-            loadGameBoard(12);
+            loadCardStack(12);
         }, 2000);
     }
 }
