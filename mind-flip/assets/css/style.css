@@ -25,7 +25,7 @@ html {
 /* CARD DIV */
 .div-card {
     width: 9.6rem;
-    aspect-ratio: 1 / 1;
+    height: 9.6rem;
     perspective: 100rem;
     transition: transform 1s;
     cursor: pointer;
@@ -40,7 +40,7 @@ html {
 .div-card-inner {
     position: relative;
     width: inherit;
-    aspect-ratio: inherit;
+    height: inherit;
     transform-style: preserve-3d;
     transition: transform 1s;
 }
@@ -53,7 +53,7 @@ html {
 .div-card-back {
     position: absolute;
     width: inherit;
-    aspect-ratio: inherit;
+    height: inherit;
     border-radius: 0.4rem;
     backface-visibility: hidden;
 }
@@ -93,7 +93,7 @@ html {
     bottom: 1.2rem;
     left: 50%;
     width: 9.6rem;
-    aspect-ratio: 1 / 1;
+    height: 9.6rem;
     border-radius: 0.4rem;
     transform: translate(-50%, 0);
     transition: transform 1s;
@@ -109,7 +109,7 @@ html {
     align-items: center;
     justify-content: center;
     width: inherit;
-    aspect-ratio: inherit;
+    height: inherit;
     background-color: darkred;
     border-radius: inherit;
     transition: opacity 0.5s;
