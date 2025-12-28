@@ -13,7 +13,7 @@ A classic memory card game featuring country flags from around the world. Test y
 
 ## Demo
 
-🔗 [Live Demo on Netlify](https://your-app-name.netlify.app)
+🔗 [Live Demo on Netlify](https://mindflip.netlify.app)
 
 ## Tech Stack
 
