@@ -4,12 +4,12 @@ A classic memory card game featuring country flags from around the world. Test y
 
 ## Features
 
-- **12 Flag Pairs** - Discover and match flags from different countries.
-- **Interactive Gameplay** - Click to flip cards and find matching pairs.
-- **Flag API Integration** - Real country flags from [FlagsAPI](https://flagsapi.com).
-- **Responsive Design** - Clean and intuitive user interface.
-- **MVC Architecture** - Well-organized code structure with separation of concerns.
-- **Configurable Difficulty** - JSON-based configuration for different pair counts.
+-   **12 Flag Pairs** - Discover and match flags from different countries.
+-   **Interactive Gameplay** - Click to flip cards and find matching pairs.
+-   **Flag API Integration** - Real country flags from [FlagsAPI](https://flagsapi.com).
+-   **Responsive Design** - Clean and intuitive user interface.
+-   **MVC Architecture** - Well-organized code structure with separation of concerns.
+-   **Configurable Difficulty** - JSON-based configuration for different pair counts.
 
 ## Demo
 
@@ -17,12 +17,12 @@ A classic memory card game featuring country flags from around the world. Test y
 
 ## Tech Stack
 
-- **HTML5** - Structure & Content
-- **CSS3** - Styling & Layout
-- **JavaScript** - Game Logic & Interactivity
-- **jQuery** - DOM Manipulation & Event Handling
-- **FlagsAPI** - Country Flag Images (https://flagsapi.com)
-- **Netlify** - Hosting & Deployment
+-   **HTML5** - Structure & Content
+-   **CSS3** - Styling & Layout
+-   **JavaScript** - Game Logic & Interactivity
+-   **jQuery** - DOM Manipulation & Event Handling
+-   **FlagsAPI** - Country Flag Images (https://flagsapi.com)
+-   **Netlify** - Hosting & Deployment
 
 ## Installation
 
@@ -65,7 +65,7 @@ MemoryGame/
 │   │   ├── css/
 │   │   │   └── style.css       # Styling.
 │   │   │
-│   │   ├── js/
+│   │   ├── javascript/
 │   │   │   │
 │   │   │   ├── helpers/        # Data management helper classes.
 │   │   │   │
@@ -88,51 +88,56 @@ MemoryGame/
 ## How It Works
 
 The game follows an MVC (Model-View-Controller) architecture:
-- **Model**: Manages game state and data.
-- **View**: Handles UI rendering and updates.
-- **Controller**: Coordinates between model and view.
-- **FlagsAPI**: Provides real country flag images dynamically.
-- **JSON Configuration**: Defines the number of pairs for different difficulty levels.
+
+-   **Model**: Manages game state and data.
+-   **View**: Handles UI rendering and updates.
+-   **Controller**: Coordinates between model and view.
+-   **FlagsAPI**: Provides real country flag images dynamically.
+-   **JSON Configuration**: Defines the number of pairs for different difficulty levels.
 
 ## Future Features
 
 This project has exciting plans for expansion:
 
 ### Multiplayer Mode
-- **Real-Time Gameplay**: Two players can connect and compete against each other.
-- **Node.js Backend**: Server-side logic for managing game sessions.
-- **Socket.IO Integration**: Real-time communication between players.
-- **Turn-Based System**: Players take turns flipping cards.
+
+-   **Real-Time Gameplay**: Two players can connect and compete against each other.
+-   **Node.js Backend**: Server-side logic for managing game sessions.
+-   **Socket.IO Integration**: Real-time communication between players.
+-   **Turn-Based System**: Players take turns flipping cards.
 
 ### In-Game Chat
-- **Live Messaging**: Communicate with your opponent during gameplay.
-- **Socket.IO Chat**: Real-time chat functionality.
-- **Chat History**: View message history during the game session.
+
+-   **Live Messaging**: Communicate with your opponent during gameplay.
+-   **Socket.IO Chat**: Real-time chat functionality.
+-   **Chat History**: View message history during the game session.
 
 ### Game History & Statistics
-- **Player Profiles**: Track individual player performance.
-- **Match History**: View results of all games played.
-- **Win/Loss Records**: Comprehensive statistics tracking.
-- **Leaderboards**: Compare your performance with other players.
+
+-   **Player Profiles**: Track individual player performance.
+-   **Match History**: View results of all games played.
+-   **Win/Loss Records**: Comprehensive statistics tracking.
+-   **Leaderboards**: Compare your performance with other players.
 
 ### Additional Enhancements
-- **Difficulty Levels**: Multiple board sizes and pair counts.
-- **Timer Mode**: Challenge mode with time limits.
-- **Sound Effects**: Audio feedback for matches and wins
-- **Animations**: Smooth card flip and match animations
+
+-   **Difficulty Levels**: Multiple board sizes and pair counts.
+-   **Timer Mode**: Challenge mode with time limits.
+-   **Sound Effects**: Audio feedback for matches and wins
+-   **Animations**: Smooth card flip and match animations
 
 ## Roadmap
 
-- [x] Single-Player Memory Game
-- [x] Flag API Integration
-- [x] MVC Architecture Implementation
-- [ ] Multiplayer Functionality (Node.js + Socket.IO)
-- [ ] In-Game Chat System
-- [ ] Game History & Statistics
-- [ ] User Authentication
-- [ ] Leaderboard System
-- [ ] Multiple Difficulty Levels
-- [ ] Sound Effects & Animations
+-   [x] Single-Player Memory Game
+-   [x] Flag API Integration
+-   [x] MVC Architecture Implementation
+-   [ ] Multiplayer Functionality (Node.js + Socket.IO)
+-   [ ] In-Game Chat System
+-   [ ] Game History & Statistics
+-   [ ] User Authentication
+-   [ ] Leaderboard System
+-   [ ] Multiple Difficulty Levels
+-   [ ] Sound Effects & Animations
 
 ## Let's Connect
 
